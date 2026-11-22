@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white fw-semibold py-3">
+        <i class="bi bi-box-arrow-in-right text-primary me-1"></i> Вхід у систему BarrierFree IF
+      </div>
+      <div class="card-body p-4">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="mb-3">
+            <%= f.label :email, "Електронна пошта", class: "form-label fw-semibold" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "user@if.ua" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password, "Пароль", class: "form-label fw-semibold" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check mb-3">
+              <%= f.check_box :remember_me, class: "form-check-input" %>
+              <%= f.label :remember_me, "Запам'ятати мене", class: "form-check-label" %>
+            </div>
+          <% end %>
+
+          <div class="d-grid mb-3">
+            <%= f.submit "Увійти", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+        <div class="small">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
